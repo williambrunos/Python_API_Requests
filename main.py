@@ -37,21 +37,15 @@ while True:
         else:
             break
     pay_load = {'type': type_activity, 'price': price, 'participants': participants}
-    
-    # trying to get a pay_load with the parameters set. If it can't, an error
-    # message will show up to the user
     try:
-        # Requesting from the API with get method
         request = rq.get(base_url, params=pay_load)
-        # Parsing the request data to json (read as dictonary)
         data = request.json()
-        # Printing the data found
         print(data)
     except Exception as e:
         print(f'Ops, something went wrong')
 
     option = str(input('Continue?[Y/N]'))
-    if option == 'N':
+    if option.upper() == 'N':
         break
 
 print('Thanks for using our software :)')
